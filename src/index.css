@@ -16,3 +16,15 @@
 	--color-theme-1-gray-200: hsl(0, 0%, 90%);
 	--color-theme-1-gray-400: hsl(28, 16%, 65%);
 }
+
+input {
+	caret-color: transparent;
+}
+
+.hide-scrollbar {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+	display: none;
+}

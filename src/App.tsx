@@ -1,6 +1,29 @@
+import { useState } from 'react';
 import Button from './components/Button';
 
 function App() {
+	const [value, setValue] = useState<string>('');
+	function inputValue(input: string) {
+		switch (input) {
+			case 'DEL': {
+				const newValue = value.split('');
+				newValue.pop();
+				setValue(newValue.join(''));
+				return;
+			}
+			case 'RESET': {
+				setValue('');
+				return;
+			}
+			case '=': {
+				const answer = eval(value);
+				setValue(answer);
+				return;
+			}
+		}
+		setValue((prev) => prev + input);
+		return;
+	}
 	return (
 		<main className="one font-spartan text-2xl font-bold">
 			<section className="flex items-center justify-center w-screen min-h-[100dvh] one:bg-theme-1-navy-850">
@@ -9,35 +32,40 @@ function App() {
 						<h1>Calc</h1>
 						<p>theme</p>
 					</header>
-					<div className="w-full one:bg-theme-1-navy-950 h-[130px] rounded-xl"></div>
+					<div className="w-full one:bg-theme-1-navy-950 h-[130px] rounded-xl one:text-theme-1-white text-4xl flex items-center text-right px-4 outline:none border-none focus:outline-none">
+						<span className="w-full text-right overflow-x-scroll hide-scrollbar">
+							{value}
+						</span>
+					</div>
+
 					<div className="one:bg-theme-1-navy-900 grid grid-cols-4 font-bold rounded-xl p-4 gap-4">
-						<Button type="button">7</Button>
-						<Button type="button">8</Button>
-						<Button type="button">9</Button>
+						<Button inputvalue={inputValue}>7</Button>
+						<Button inputvalue={inputValue}>8</Button>
+						<Button inputvalue={inputValue}>9</Button>
 						<Button
-							type="button"
+							inputvalue={inputValue}
 							className="one:bg-theme-1-navy-700 one:inset-shadow-theme-1-navy-800">
 							DEL
 						</Button>
-						<Button type="button">4</Button>
-						<Button type="button">5</Button>
-						<Button type="button">6</Button>
-						<Button type="button">+</Button>
-						<Button type="button">1</Button>
-						<Button type="button">2</Button>
-						<Button type="button">3</Button>
-						<Button type="button">-</Button>
-						<Button type="button">.</Button>
-						<Button type="button">0</Button>
-						<Button type="button">/</Button>
-						<Button type="button">x</Button>
+						<Button inputvalue={inputValue}>4</Button>
+						<Button inputvalue={inputValue}>5</Button>
+						<Button inputvalue={inputValue}>6</Button>
+						<Button inputvalue={inputValue}>+</Button>
+						<Button inputvalue={inputValue}>1</Button>
+						<Button inputvalue={inputValue}>2</Button>
+						<Button inputvalue={inputValue}>3</Button>
+						<Button inputvalue={inputValue}>-</Button>
+						<Button inputvalue={inputValue}>.</Button>
+						<Button inputvalue={inputValue}>0</Button>
+						<Button inputvalue={inputValue}>/</Button>
+						<Button inputvalue={inputValue}>x</Button>
 						<Button
-							type="button"
+							inputvalue={inputValue}
 							className="one:bg-theme-1-navy-700 one:inset-shadow-theme-1-navy-800 col-span-2 ">
 							RESET
 						</Button>
 						<Button
-							type="button"
+							inputvalue={inputValue}
 							className="one:bg-theme-1-red-600 one:inset-shadow-theme-1-red-800 col-span-2">
 							=
 						</Button>
