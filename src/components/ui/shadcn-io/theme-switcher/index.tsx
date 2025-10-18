@@ -85,7 +85,7 @@ export const ThemeSwitcher = ({
 						)}
 						<p
 							className={cn(
-								'relative z-10 m-auto h-4 w-4 rounded-full one:bg-theme-1-red-600 two:bg-theme-2-orange-700 three:bg-theme-3-cyan-500',
+								'relative z-10 m-auto h-4 w-4 rounded-full one:bg-theme-1-red-600 two:bg-theme-2-orange-700 three:bg-theme-3-cyan-500 hover:brightness-150',
 								isActive ? 'opacity-100' : 'opacity-0'
 							)}></p>
 					</button>
