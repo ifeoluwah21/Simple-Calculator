@@ -18,13 +18,17 @@ function App() {
 				return;
 			}
 			case '=': {
-				const answer = eval(value);
-				setValue(answer);
+				const answer = eval(value) as number;
+				setValue(`${answer.toFixed(2)}`);
 				return;
 			}
 		}
 		setValue((prev) => prev + input);
 		return;
+	}
+	if (value === 'Infinity') {
+		alert('Mathematical Error!!!');
+		setValue('');
 	}
 	return (
 		<main className={`${theme} font-spartan text-2xl`}>
@@ -54,32 +58,95 @@ function App() {
 					</div>
 
 					<div className="one:bg-theme-1-navy-900 two:bg-theme-2-gray-300 three:bg-theme-3-purple-900 grid grid-cols-4 font-bold rounded-xl p-4 gap-4">
-						<Button inputvalue={inputValue}>7</Button>
-						<Button inputvalue={inputValue}>8</Button>
-						<Button inputvalue={inputValue}>9</Button>
 						<Button
+							value={'7'}
+							inputvalue={inputValue}>
+							7
+						</Button>
+						<Button
+							value={'8'}
+							inputvalue={inputValue}>
+							8
+						</Button>
+						<Button
+							value={'9'}
+							inputvalue={inputValue}>
+							9
+						</Button>
+						<Button
+							value={'DEL'}
 							inputvalue={inputValue}
 							className="one:bg-theme-1-navy-700 one:text-theme-white two:text-theme-white two:bg-theme-2-blue-500 three:bg-theme-3-purple-800 three:text-theme-white one:inset-shadow-theme-1-navy-800 two:inset-shadow-theme-2-blue-600 three:inset-shadow-theme-3-purple-400">
 							DEL
 						</Button>
-						<Button inputvalue={inputValue}>4</Button>
-						<Button inputvalue={inputValue}>5</Button>
-						<Button inputvalue={inputValue}>6</Button>
-						<Button inputvalue={inputValue}>+</Button>
-						<Button inputvalue={inputValue}>1</Button>
-						<Button inputvalue={inputValue}>2</Button>
-						<Button inputvalue={inputValue}>3</Button>
-						<Button inputvalue={inputValue}>-</Button>
-						<Button inputvalue={inputValue}>.</Button>
-						<Button inputvalue={inputValue}>0</Button>
-						<Button inputvalue={inputValue}>/</Button>
-						<Button inputvalue={inputValue}>x</Button>
 						<Button
+							inputvalue={inputValue}
+							value={'4'}>
+							4
+						</Button>
+						<Button
+							inputvalue={inputValue}
+							value={'5'}>
+							5
+						</Button>
+						<Button
+							inputvalue={inputValue}
+							value={'6'}>
+							6
+						</Button>
+						<Button
+							inputvalue={inputValue}
+							value={'+'}>
+							+
+						</Button>
+						<Button
+							inputvalue={inputValue}
+							value={'1'}>
+							1
+						</Button>
+						<Button
+							inputvalue={inputValue}
+							value={'2'}>
+							2
+						</Button>
+						<Button
+							inputvalue={inputValue}
+							value={'3'}>
+							3
+						</Button>
+						<Button
+							inputvalue={inputValue}
+							value={'-'}>
+							-
+						</Button>
+						<Button
+							inputvalue={inputValue}
+							value={'.'}>
+							.
+						</Button>
+						<Button
+							inputvalue={inputValue}
+							value={'0'}>
+							0
+						</Button>
+						<Button
+							inputvalue={inputValue}
+							value={'/'}>
+							/
+						</Button>
+						<Button
+							inputvalue={inputValue}
+							value={'*'}>
+							x
+						</Button>
+						<Button
+							value={'RESET'}
 							inputvalue={inputValue}
 							className="one:bg-theme-1-navy-700 one:text-theme-white two:text-theme-white two:bg-theme-2-blue-500 three:bg-theme-3-purple-800 three:text-theme-white one:inset-shadow-theme-1-navy-800 two:inset-shadow-theme-2-blue-600 three:inset-shadow-theme-3-purple-400 col-span-2 ">
 							RESET
 						</Button>
 						<Button
+							value={'='}
 							inputvalue={inputValue}
 							className="one:bg-theme-1-red-600 one:text-theme-white two:text-theme-white two:bg-theme-2-orange-700 three:bg-theme-3-cyan-500 three:text-theme-3-blue-950 one:inset-shadow-theme-1-red-800 two:inset-shadow-theme-2-orange-800 three:inset-shadow-theme-3-cyan-400 col-span-2">
 							=

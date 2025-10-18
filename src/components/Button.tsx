@@ -4,9 +4,10 @@ import { cn } from '../utils/utils';
 const Button: React.FC<
 	React.ButtonHTMLAttributes<HTMLButtonElement> & {
 		children: string;
+		value: string;
 		inputvalue: (input: string) => void;
 	}
-> = ({ className, children, inputvalue, ...props }) => {
+> = ({ className, value, children, inputvalue, ...props }) => {
 	return (
 		<button
 			className={cn(
@@ -16,7 +17,7 @@ const Button: React.FC<
 			onClick={(e) => {
 				inputvalue(e.currentTarget.value);
 			}}
-			value={children}
+			value={value}
 			type="button"
 			{...props}>
 			{children}
