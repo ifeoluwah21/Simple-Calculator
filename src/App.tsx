@@ -30,14 +30,21 @@ function App() {
 		<main className={`${theme} font-spartan text-2xl`}>
 			<section className="flex items-center justify-center w-screen min-h-[100dvh] one:bg-theme-1-navy-850 two:bg-theme-2-gray-200 three:bg-theme-3-purple-950 ">
 				<div className="max-w-[400px] min-w-[300px] w-4/5 m-auto space-y-6">
-					<header className="flex justify-between one:text-theme-white two:text-theme-2-gray-900 three:text-theme-3-yellow-300 font-bold">
+					<header className="flex justify-between items-center one:text-theme-white two:text-theme-2-gray-900 three:text-theme-3-yellow-300 font-bold">
 						<h1>calc</h1>
-						<div className="flex items-center gap-x-8">
+						<div className="flex items-center gap-x-4">
 							<p className="font-semibold text-sm">THEME</p>
-							<ThemeToggler
-								theme={theme}
-								setTheme={setTheme}
-							/>
+							<div>
+								<p className="flex justify-between items-center p-1 text-base md:scale-75">
+									<span className="w-6 text-center">1</span>
+									<span className="w-6 text-center">2</span>
+									<span className="w-6 text-center">3</span>
+								</p>
+								<ThemeToggler
+									theme={theme}
+									setTheme={setTheme}
+								/>
+							</div>
 						</div>
 					</header>
 					<div className="w-full one:bg-theme-1-navy-950 two:bg-theme-2-gray-100 three:bg-theme-3-purple-900 h-[130px] rounded-xl one:text-theme-white two:text-theme-2-gray-900 three:text-theme-3-yellow-300 text-4xl flex items-center text-right px-4 outline:none border-none focus:outline-none">

@@ -5,7 +5,7 @@ const ThemeToggler: React.FC<{
 }> = ({ theme, setTheme }) => {
 	return (
 		<ThemeSwitcher
-			className="bg-theme-1-navy-900"
+			className="bg-theme-1-navy-900 md:scale-75"
 			defaultValue="one"
 			onChange={setTheme}
 			value={theme}
